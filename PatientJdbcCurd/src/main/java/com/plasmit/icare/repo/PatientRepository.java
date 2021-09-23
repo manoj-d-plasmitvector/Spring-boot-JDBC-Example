@@ -1,9 +1,5 @@
 package com.plasmit.icare.repo;
 
-
-
-
-
 import java.sql.ResultSet;
 import java.util.List;
 
@@ -41,20 +37,20 @@ public class PatientRepository  {
 				return jt.query(GET_PATIENT_QUERY,rowMapper);
 			}
 	
-	
+	//save patient record in database.
 	public boolean savePatient(Patient p) {
 		if (jt.update(INSERT_PATIENT_QUERY,p.getPid(),p.getPname(),p.getDisease(),p.getAddress()) > 0 );
 		return true;
 		
 	}
 
-
+	//update data in database.
 	public boolean updatePatient(Patient patient) {
 		if (jt.update(UPDATE_PATIENT_BY_ID_QUERY,patient.getPname(),patient.getDisease(),patient.getAddress(),patient.getPid()) > 0 );
 		return true;
 	}
 
-
+	//delete data in database.
 	public boolean deletePatient(int id) {
 		if (jt.update(DELETE_PATIENT_BY_ID_QUERY,id) > 0 );
 		return true;
